@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.media.MediaView?>
+
+<AnchorPane fx:id="anchorPane" minHeight="-Infinity" minWidth="-Infinity" onMouseDragged="#initialize" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Controller">
+   <children>
+      <MenuBar fx:id="menuBar" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#open" text="Open" />
+                  <MenuItem mnemonicParsing="false" onAction="#playPauseBtn" text="Play/Pause" />
+                  <MenuItem mnemonicParsing="false" onAction="#fullscreen" text="Fullscreen" />
+               </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <StackPane fx:id="stackPane" layoutX="67.0" layoutY="100.0" style="-fx-background-color: black;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="27.0">
+         <children>
+            <MediaView fx:id="mediaView" cache="true" fitHeight="373.0" fitWidth="600.0" StackPane.alignment="CENTER" />
+         </children>
+         <padding>
+            <Insets top="22.0" />
+         </padding>
+      </StackPane>
+      <AnchorPane fx:id="tabAnchorPane" layoutY="400.0" onMouseEntered="#showPane" onMouseExited="#hidePane" prefHeight="51.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <children>
+            <Slider fx:id="videoSlider" layoutX="86.0" layoutY="17.0" onDragDetected="#drag" onKeyPressed="#forwardBackward" onMousePressed="#slidermouseClick" onMouseReleased="#slidermouseClick" prefHeight="14.0" prefWidth="384.0" AnchorPane.bottomAnchor="17.0" AnchorPane.leftAnchor="86.0" AnchorPane.rightAnchor="153.0" AnchorPane.topAnchor="17.0" />
+            <Label fx:id="currentTimeLabel" alignment="CENTER" layoutX="14.0" layoutY="18.0" prefHeight="17.0" prefWidth="86.0" style="-fx-text-fill: white;" text="00:00" AnchorPane.bottomAnchor="17.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="17.0" />
+            <Label fx:id="TimeLabel" alignment="CENTER" layoutX="447.0" layoutY="17.0" prefHeight="17.0" prefWidth="86.0" style="-fx-text-fill: white;" text="00:00" AnchorPane.bottomAnchor="17.0" AnchorPane.rightAnchor="67.0" AnchorPane.topAnchor="17.0" />
+            <Slider fx:id="volumeSlider" layoutX="534.0" layoutY="19.0" onDragDetected="#setVolumeDrag" prefHeight="17.0" prefWidth="57.0" AnchorPane.bottomAnchor="17.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="17.0" />
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="listAnchorPane" layoutX="220.0" layoutY="400.0" onMouseEntered="#showList" onMouseExited="#hideList" prefHeight="243.0" prefWidth="160.0" AnchorPane.bottomAnchor="50.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="40.0">
+         <children>
+            <ListView fx:id="mediaList" prefHeight="200.0" prefWidth="164.0" AnchorPane.bottomAnchor="43.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+            <Button fx:id="myButton" alignment="CENTER" layoutX="64.0" layoutY="272.0" mnemonicParsing="false" onAction="#playPauseBtn" prefHeight="33.0" prefWidth="33.0" AnchorPane.bottomAnchor="4.0" AnchorPane.leftAnchor="64.0" AnchorPane.rightAnchor="64.0" />
+            <Button fx:id="myButton1" layoutX="94.0" layoutY="276.0" mnemonicParsing="false" onAction="#clickForward" prefHeight="33.0" prefWidth="45.0" AnchorPane.bottomAnchor="4.0" AnchorPane.rightAnchor="0.0" />
+            <Button fx:id="myButton2" layoutX="104.0" layoutY="286.0" mnemonicParsing="false" onAction="#clickBackward" prefHeight="33.0" prefWidth="45.0" AnchorPane.bottomAnchor="4.0" AnchorPane.leftAnchor="0.0" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
